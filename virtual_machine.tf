@@ -19,12 +19,12 @@ resource "oci_core_instance" "ampere_a1" {
   }
   source_details {
     source_type = "image"
-    source_id   = data.oci_core_images.oraclelinux-8_4-aarch64.images.0.id
+    source_id   = data.oci_core_images.freebsd-13-aarch64.images.0.id
   }
 
   metadata = {
     ssh_authorized_keys = tls_private_key.oci.public_key_openssh
     user_data = "${base64encode(data.template_file.cloud_config.rendered)}"
-    
+
   }
 }

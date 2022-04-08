@@ -2,11 +2,11 @@
 # (index 0) is the latest patched version filter to specific display
 # name pattern to include the aarch64 images
 
-data "oci_core_images" "freebsd-13_1-aarch64" {
+data "oci_core_images" "freebsd-13-aarch64" {
   compartment_id = var.tenancy_ocid
 
   operating_system         = "FreeBSD"
-  operating_system_version = "13.1-RC1"
+  operating_system_version = "13.1-RC2"
 
   # include Aarch64 specific images
   filter {
@@ -16,10 +16,10 @@ data "oci_core_images" "freebsd-13_1-aarch64" {
   }
 }
 
-output "FreeBSD-13_1-aarch64-latest_name" {
-  value = data.oci_core_images.freebsd-13_1-aarch64.images.0.display_name
+output "FreeBSD-13-aarch64-latest_name" {
+  value = data.oci_core_images.freebsd-13-aarch64.images.0.display_name
 }
 
-output "FreeBSD-13_1-aarch64-latest_ocid" {
-  value = data.oci_core_images.freebsd-13_1-aarch64.images.0.id
+output "FreeBSD-13-aarch64-latest_ocid" {
+  value = data.oci_core_images.freebsd-13-aarch64.images.0.id
 }
